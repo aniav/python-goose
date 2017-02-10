@@ -26,7 +26,7 @@ import re
 import os
 import goose
 import codecs
-import urlparse
+from html.parse import urlparse
 
 
 class BuildURL(object):

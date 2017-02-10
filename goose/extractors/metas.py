@@ -22,8 +22,7 @@ limitations under the License.
 """
 
 import re
-from urlparse import urljoin
-from urlparse import urlparse
+import urllib.parse
 
 from goose.extractors import BaseExtractor
 
@@ -35,7 +34,7 @@ class MetasExtractor(BaseExtractor):
 
     def get_domain(self):
         if self.article.final_url:
-            o = urlparse(self.article.final_url)
+            o = urllib.parse.urlparse(self.article.final_url)
             return o.hostname
         return None
 
@@ -68,7 +67,7 @@ class MetasExtractor(BaseExtractor):
                     if not o.hostname:
                         z = urlparse(self.article.final_url)
                         domain = '%s://%s' % (z.scheme, z.hostname)
-                        href = urljoin(domain, href)
+                        href = urllib.parse.urljoin(domain, href)
                     return href
         return self.article.final_url
 
