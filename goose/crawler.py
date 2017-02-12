@@ -146,7 +146,6 @@ class Crawler(object):
 
         # tags
         self.article.tags = self.tags_extractor.extract()
-
         # authors
         self.article.authors = self.authors_extractor.extract()
 
